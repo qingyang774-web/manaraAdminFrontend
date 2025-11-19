@@ -132,6 +132,7 @@ h1 {
   background: linear-gradient(135deg, var(--accent-ghost), transparent 60%);
   opacity: 0;
   transition: opacity 0.2s ease;
+  pointer-events: none;
 }
 
 .university-card:hover {
@@ -148,6 +149,12 @@ h1 {
   justify-content: space-between;
   align-items: flex-start;
   gap: 1rem;
+}
+
+.card-actions {
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
 }
 
 .card-body {
@@ -477,6 +484,21 @@ textarea {
 .button-secondary:hover {
   border-color: var(--accent);
   color: var(--accent);
+}
+
+.button-danger {
+  border: none;
+  background: #ffe6e0;
+  color: #b42318;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 0.35rem 0.75rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.button-danger:hover {
+  background: #ffd1c8;
 }
 
 .badge {

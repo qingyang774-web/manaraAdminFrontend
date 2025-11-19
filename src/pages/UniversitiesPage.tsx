@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { degreeLevels } from '../types/university';
 import type { DegreeLevel, University } from '../types/university';
-import { getUniversities } from '../services/universityService';
+import { deleteUniversity, getUniversities } from '../services/universityService';
 import type { UniversityFilters } from '../services/universityService';
 
 const degreeLabels: Record<DegreeLevel, string> = {
@@ -48,6 +48,17 @@ function UniversitiesPage() {
       keep = false;
     };
   }, [filters]);
+
+  const handleDelete = async (id: string, name: string) => {
+    const confirmed = window.confirm(`Are you sure you want to delete ${name}?`);
+    if (!confirmed) return;
+    try {
+      await deleteUniversity(id);
+      setUniversities((prev) => prev.filter((uni) => uni.id !== id));
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Unable to delete university');
+    }
+  };
 
   const locationOptions = useMemo(() => {
     const set = new Set(universities.map((uni) => uni.location));
@@ -151,19 +162,39 @@ function UniversitiesPage() {
                 (sum, level) => sum + (university.scholarships?.[level]?.length ?? 0),
                 0
               );
+              const goToDetail = () => navigate(`/universities/${university.id}`);
               return (
-                <button
-                  type="button"
+                <article
                   key={university.id}
                   className="card university-card"
-                  onClick={() => navigate(`/universities/${university.id}`)}
+                  role="button"
+                  tabIndex={0}
+                  onClick={goToDetail}
+                  onKeyDown={(event) => {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                      event.preventDefault();
+                      goToDetail();
+                    }
+                  }}
                 >
                   <div className="card-header">
                     <div>
                       <h3>{university.name}</h3>
                       <p className="muted">{university.location}</p>
                     </div>
-                    <span className="badge">View</span>
+                    <div className="card-actions">
+                      <span className="badge">View</span>
+                      <button
+                        type="button"
+                        className="button-danger"
+                        onClick={(event) => {
+                          event.stopPropagation();
+                          handleDelete(university.id, university.name);
+                        }}
+                      >
+                        Delete
+                      </button>
+                    </div>
                   </div>
                   <p className="card-body">{university.overview}</p>
                   <div className="card-meta">
@@ -186,7 +217,7 @@ function UniversitiesPage() {
                       Restricted: {university.restrictedCountries!.join(', ')}
                     </p>
                   )}
-                </button>
+                </article>
               );
             })}
           </div>

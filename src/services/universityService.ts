@@ -133,3 +133,14 @@ export const updateUniversity = async (id: string, payload: Partial<University>)
   writeStore(universities);
   return delay(updated);
 };
+
+export const deleteUniversity = async (id: string) => {
+  const universities = readStore();
+  const index = universities.findIndex((u) => u.id === id);
+  if (index === -1) {
+    throw new Error('University not found');
+  }
+  universities.splice(index, 1);
+  writeStore(universities);
+  return delay({ success: true });
+};
