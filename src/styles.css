@@ -1,0 +1,622 @@
+:root {
+  --accent: #ff790c;
+  --accent-dark: #e26400;
+  --accent-soft: rgba(255, 121, 12, 0.12);
+  --accent-ghost: rgba(255, 121, 12, 0.08);
+  --slate: #101828;
+  --muted: #667085;
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #fff7f0;
+  color: var(--slate);
+  line-height: 1.5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #fff7f0;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+.app-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+.app-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  color: var(--accent);
+  font-weight: 600;
+  margin: 0;
+}
+
+h1 {
+  margin: 0.25rem 0 0 0;
+  font-size: 2.2rem;
+}
+
+.main-nav {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.main-nav a {
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  font-weight: 500;
+  color: #475467;
+}
+
+.main-nav a.active {
+  background-color: var(--accent);
+  color: white;
+  box-shadow: 0 8px 16px rgba(255, 121, 12, 0.3);
+}
+
+.muted {
+  color: var(--muted);
+  margin: 0;
+}
+
+.error-text {
+  color: #b42318;
+  font-weight: 600;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 22px 45px rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(255, 121, 12, 0.06);
+}
+
+.filters-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.filters-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.filters-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.section-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.university-card {
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.university-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--accent-ghost), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.university-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 28px 48px rgba(15, 23, 42, 0.15);
+}
+
+.university-card:hover::after {
+  opacity: 1;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.card-body {
+  min-height: 60px;
+}
+
+.card-footer {
+  margin-top: 1rem;
+  font-weight: 600;
+}
+
+.card-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.card-meta .label {
+  font-size: 0.8rem;
+}
+
+.link-inline {
+  margin-top: 1rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-align: left;
+}
+
+.detail-shell {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.detail-hero {
+  padding: 2rem;
+  background: radial-gradient(circle at top right, var(--accent-ghost), transparent 65%), #fff;
+  border: 1px solid rgba(255, 121, 12, 0.15);
+}
+
+.hero-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.hero-actions .button-primary,
+.hero-actions .button-secondary {
+  border-radius: 18px;
+  padding: 1rem 1.6rem;
+  min-width: 160px;
+  font-size: 1rem;
+}
+
+.hero-actions .button-secondary {
+  background: linear-gradient(145deg, #fff, #fff9f3);
+  box-shadow: inset 0 0 0 1px rgba(255, 121, 12, 0.2), 0 14px 30px rgba(255, 121, 12, 0.08);
+}
+
+.hero-actions .button-secondary:hover {
+  box-shadow: inset 0 0 0 1px rgba(255, 121, 12, 0.4), 0 16px 32px rgba(255, 121, 12, 0.12);
+}
+
+.hero-overview {
+  font-size: 1rem;
+  margin: 1rem 0 0;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.stat-card {
+  border: 1px solid rgba(255, 121, 12, 0.18);
+  border-radius: 12px;
+  padding: 1rem;
+  background: #fff8f2;
+}
+
+.detail-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.pill {
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  background-color: rgba(255, 121, 12, 0.15);
+  color: var(--accent-dark);
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.degree-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.scholarship-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.scholarship-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  align-items: baseline;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.details-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.details-links {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.details-overview {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.fees-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.fee-card {
+  padding: 1rem;
+  border: 1px solid #e4e7ec;
+  border-radius: 12px;
+}
+
+.tuition-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.tuition-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+}
+
+.degree-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.degree-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.degree-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.degree-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.scholarship-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.scholarship-card {
+  border: 1px solid #e4e7ec;
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  background: #fff;
+  box-shadow: 0 15px 30px rgba(16, 24, 40, 0.08);
+}
+
+.scholarship-card .deadline {
+  font-weight: 600;
+  color: #101828;
+}
+
+.app-main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+section + section {
+  margin-top: 1rem;
+}
+
+form label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+  color: #475467;
+  gap: 0.25rem;
+}
+
+input,
+textarea,
+select {
+  padding: 0.65rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #d0d5dd;
+  font-size: 1rem;
+  font-family: inherit;
+  background-color: #fff;
+}
+
+textarea {
+  min-height: 120px;
+}
+
+.button-primary {
+  border: none;
+  border-radius: 10px;
+  padding: 0.75rem 1.25rem;
+  background-color: var(--accent);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 12px 24px rgba(255, 121, 12, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.button-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 28px rgba(255, 121, 12, 0.4);
+}
+
+.button-secondary {
+  border: 1px solid rgba(255, 121, 12, 0.35);
+  border-radius: 10px;
+  padding: 0.75rem 1.25rem;
+  background-color: white;
+  color: var(--accent-dark);
+  font-weight: 600;
+  cursor: pointer;
+  transition: border 0.2s ease, color 0.2s ease;
+}
+
+.button-secondary:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.badge {
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  background: rgba(255, 121, 12, 0.15);
+  color: var(--accent-dark);
+}
+
+.form-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.form-controls label {
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.status-banner {
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  font-weight: 600;
+}
+
+.status-banner.success {
+  background: #fff3e7;
+  color: var(--accent-dark);
+  border: 1px solid rgba(255, 121, 12, 0.3);
+}
+
+.status-banner.error {
+  background: #fef3f2;
+  color: #b42318;
+  border: 1px solid #fec6c6;
+}
+
+.degree-editor {
+  border: 1px solid #e4e7ec;
+  border-radius: 16px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+  background: #fff;
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.05);
+}
+
+.degree-editor-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.inline-card {
+  border: 1px solid rgba(255, 121, 12, 0.15);
+  border-radius: 12px;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background: #fff;
+  box-shadow: 0 8px 16px rgba(16, 24, 40, 0.05);
+}
+
+.inline-card-grid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.editor-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.link {
+  border: none;
+  background: none;
+  color: var(--accent);
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+  padding: 0;
+}
+
+.link.danger {
+  color: #b42318;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.scholarship-card span {
+  display: block;
+  font-weight: 600;
+  color: var(--accent-dark);
+}
+
+.scholarship-card p {
+  margin: 0.25rem 0 0;
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.table-like {
+  border: 1px solid #e4e7ec;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.table-like header,
+.table-like .row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 0.75rem 1rem;
+}
+
+.table-like header {
+  background-color: #fff2e7;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent-dark);
+}
+
+.table-like .row:nth-child(even) {
+  background-color: rgba(255, 121, 12, 0.04);
+}
+
+.divider {
+  height: 1px;
+  width: 100%;
+  background-color: rgba(255, 121, 12, 0.2);
+  margin: 1.5rem 0;
+}
+
+@media (max-width: 720px) {
+  .app-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .table-like header,
+  .table-like .row {
+    grid-template-columns: 1fr;
+  }
+
+  .degree-content,
+  .filters-form,
+  .inline-card-grid,
+  .card-meta {
+    grid-template-columns: 1fr;
+  }
+}
+
