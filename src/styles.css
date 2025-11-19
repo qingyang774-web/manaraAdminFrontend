@@ -267,6 +267,40 @@ h1 {
   font-size: 0.8rem;
 }
 
+.pill.warning {
+  background-color: rgba(255, 121, 12, 0.25);
+  color: #7a2e00;
+}
+
+.pill.removable {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.pill.removable button {
+  border: none;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  font-size: 0.9em;
+  padding: 0;
+  line-height: 1;
+}
+
+.restriction-banner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border: 1px solid rgba(255, 121, 12, 0.2);
+}
+
+.restricted-note {
+  margin-top: 0.5rem;
+  color: #b42318;
+  font-weight: 600;
+}
+
 .degree-detail-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -490,6 +524,14 @@ textarea {
   background: #fef3f2;
   color: #b42318;
   border: 1px solid #fec6c6;
+}
+
+.restricted-input {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 0.75rem;
 }
 
 .degree-editor {

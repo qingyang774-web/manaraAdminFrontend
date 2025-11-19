@@ -27,6 +27,7 @@ export interface University {
   fees: Fees;
   programs: Record<DegreeLevel, Program[]>;
   scholarships: Record<DegreeLevel, Scholarship[]>;
+  restrictedCountries?: string[];
 }
 
 export const degreeLevels: DegreeLevel[] = ['bachelor', 'masters', 'phd'];

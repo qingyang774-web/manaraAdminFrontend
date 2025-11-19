@@ -181,6 +181,11 @@ function UniversitiesPage() {
                     </div>
                   </div>
                   <div className="card-footer link-inline">Explore profile →</div>
+                  {(university.restrictedCountries?.length ?? 0) > 0 && (
+                    <p className="restricted-note">
+                      Restricted: {university.restrictedCountries!.join(', ')}
+                    </p>
+                  )}
                 </button>
               );
             })}

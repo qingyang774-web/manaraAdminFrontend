@@ -102,7 +102,6 @@ function UniversityDetailPage() {
             <Link to="/" className="link inline">
               ← Back to directory
             </Link>
-            <p className="eyebrow">University profile</p>
             <h1>{university.name}</h1>
             <p className="muted">{university.location}</p>
           </div>
@@ -113,14 +112,13 @@ function UniversityDetailPage() {
             >
               Edit in Admin
             </button>
-            <a
+            <button
               className="button-primary"
-              href={university.portalUrl}
-              target="_blank"
-              rel="noreferrer"
+              onClick={() => window.open(university.portalUrl, '_blank')}
             >
               Visit portal
-            </a>
+            </button>
+           
           </div>
         </div>
         {university.overview && <p className="hero-overview">{university.overview}</p>}
@@ -133,6 +131,20 @@ function UniversityDetailPage() {
           ))}
         </div>
       </div>
+
+      {(university.restrictedCountries?.length ?? 0) > 0 && (
+        <div className="card restriction-banner">
+          <strong>Restricted countries</strong>
+          <p className="muted">Applicants from these countries are currently not eligible.</p>
+          <div className="pill-row">
+            {university.restrictedCountries!.map((country) => (
+              <span key={country} className="pill warning">
+                {country}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
 
       {degreeLevels.map((level) => {
         const programs = university.programs?.[level] ?? [];

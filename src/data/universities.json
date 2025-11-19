@@ -1,0 +1,277 @@
+[
+  {
+    "id": "uni-001",
+    "name": "Stanford University",
+    "portalUrl": "https://www.stanford.edu",
+    "location": "California, USA",
+    "overview": "Stanford is known for its interdisciplinary programs and cutting-edge research.",
+    "fees": {
+      "application": 90,
+      "averageTuition": {
+        "bachelor": 56000,
+        "masters": 60000,
+        "phd": 58000
+      }
+    },
+    "programs": {
+      "bachelor": [
+        {
+          "name": "Computer Science",
+          "duration": "4 years",
+          "delivery": "On-campus"
+        },
+        {
+          "name": "Electrical Engineering",
+          "duration": "4 years",
+          "delivery": "On-campus"
+        }
+      ],
+      "masters": [
+        {
+          "name": "Data Science",
+          "duration": "2 years",
+          "delivery": "On-campus"
+        },
+        {
+          "name": "Education Policy",
+          "duration": "2 years",
+          "delivery": "Hybrid"
+        }
+      ],
+      "phd": [
+        {
+          "name": "Bioengineering",
+          "duration": "4-5 years",
+          "delivery": "On-campus"
+        },
+        {
+          "name": "Management Science",
+          "duration": "4-5 years",
+          "delivery": "On-campus"
+        }
+      ]
+    },
+    "scholarships": {
+      "bachelor": [
+        {
+          "name": "Global Talent Grant",
+          "amount": "up to 50% tuition",
+          "eligibility": "GPA 3.7+",
+          "deadline": "2025-02-01"
+        }
+      ],
+      "masters": [
+        {
+          "name": "STEM Leadership Award",
+          "amount": "$25k stipend",
+          "eligibility": "3 years work experience",
+          "deadline": "2025-01-10"
+        }
+      ],
+      "phd": [
+        {
+          "name": "Innovation Fellowship",
+          "amount": "full tuition + stipend",
+          "eligibility": "Research proposal",
+          "deadline": "Rolling"
+        }
+      ]
+    },
+    "restrictedCountries": ["Iran", "Sudan"]
+  },
+  {
+    "id": "uni-002",
+    "name": "University of Toronto",
+    "portalUrl": "https://www.utoronto.ca",
+    "location": "Ontario, Canada",
+    "overview": "UofT offers diverse programs and strong research output across faculties.",
+    "fees": {
+      "application": 125,
+      "averageTuition": {
+        "bachelor": 42000,
+        "masters": 38000,
+        "phd": 36000
+      }
+    },
+    "programs": {
+      "bachelor": [
+        {
+          "name": "International Relations",
+          "duration": "4 years",
+          "delivery": "On-campus"
+        },
+        {
+          "name": "Mechanical Engineering",
+          "duration": "4 years",
+          "delivery": "On-campus"
+        }
+      ],
+      "masters": [
+        {
+          "name": "Public Health",
+          "duration": "20 months",
+          "delivery": "On-campus"
+        },
+        {
+          "name": "Financial Economics",
+          "duration": "16 months",
+          "delivery": "Hybrid"
+        }
+      ],
+      "phd": [
+        {
+          "name": "Computer Engineering",
+          "duration": "4-6 years",
+          "delivery": "On-campus"
+        }
+      ]
+    },
+    "scholarships": {
+      "bachelor": [
+        {
+          "name": "International Scholar Award",
+          "amount": "CAD 25k",
+          "eligibility": "Top 5% GPA",
+          "deadline": "2024-12-15"
+        }
+      ],
+      "masters": [
+        {
+          "name": "Global Health Fellowship",
+          "amount": "CAD 15k",
+          "eligibility": "Health background",
+          "deadline": "2025-03-10"
+        }
+      ],
+      "phd": [
+        {
+          "name": "Doctoral Excellence Scholarship",
+          "amount": "CAD 30k",
+          "eligibility": "Published research",
+          "deadline": "2025-04-01"
+        }
+      ]
+    },
+    "restrictedCountries": []
+  },
+  {
+    "id": "e3664d19-cf81-4e4c-b0b0-e5f7d512e48b",
+    "name": "Zhengzhou University",
+    "portalUrl": "zzu.com",
+    "location": "Zhenzgzhou henan",
+    "overview": "appy now hurry up",
+    "fees": {
+      "application": 0,
+      "averageTuition": {
+        "bachelor": 25000,
+        "masters": 300000,
+        "phd": 300000
+      }
+    },
+    "programs": {
+      "bachelor": [
+        {
+          "name": "Software",
+          "duration": "4 years",
+          "delivery": "delivery "
+        },
+        {
+          "name": "civil",
+          "duration": "4 years",
+          "delivery": "delivery"
+        },
+        {
+          "name": "MBBS",
+          "duration": "6 years",
+          "delivery": "dfdasf"
+        }
+      ],
+      "masters": [
+        {
+          "name": "civil",
+          "duration": "2 years",
+          "delivery": "safdsf"
+        },
+        {
+          "name": "businuss",
+          "duration": "2 years",
+          "delivery": "sdfsd"
+        }
+      ],
+      "phd": [
+        {
+          "name": "software ",
+          "duration": "5 years",
+          "delivery": "sadfad"
+        }
+      ]
+    },
+    "scholarships": {
+      "bachelor": [
+        {
+          "name": "henan",
+          "amount": "25000",
+          "eligibility": "all",
+          "deadline": "21 jan"
+        }
+      ],
+      "masters": [
+        {
+          "name": "csc",
+          "amount": "25000",
+          "eligibility": "all",
+          "deadline": "2 dec"
+        }
+      ],
+      "phd": [
+        {
+          "name": "Presidential ",
+          "amount": "300000",
+          "eligibility": "all",
+          "deadline": "22dec"
+        }
+      ]
+    },
+    "restrictedCountries": ["Country A", "Country B"]
+  },
+  {
+    "id": "0ce5c6ee-3dda-4917-8cae-5b09850a3b2a",
+    "name": "sdfgdsg",
+    "portalUrl": "dfg dfdf",
+    "location": "dfgdfgdf",
+    "overview": "dfgdfg",
+    "fees": {
+      "application": 0,
+      "averageTuition": {
+        "bachelor": 143543,
+        "masters": 5345345,
+        "phd": 353453
+      }
+    },
+    "programs": {
+      "bachelor": [
+        {
+          "name": "gdfgd",
+          "duration": "fgdfg",
+          "delivery": "dfgdf"
+        }
+      ],
+      "masters": [],
+      "phd": []
+    },
+    "scholarships": {
+      "bachelor": [
+        {
+          "name": "gdfgd",
+          "amount": "gdfg",
+          "eligibility": "dfgdf",
+          "deadline": "dgdfg"
+        }
+      ],
+      "masters": [],
+      "phd": []
+    },
+    "restrictedCountries": []
+  }
+]
+

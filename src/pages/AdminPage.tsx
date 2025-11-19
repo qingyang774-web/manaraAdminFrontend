@@ -39,7 +39,8 @@ const createDefaultForm = (): EditableUniversity => ({
     averageTuition: {}
   },
   programs: emptyPrograms(),
-  scholarships: emptyScholarships()
+  scholarships: emptyScholarships(),
+  restrictedCountries: []
 });
 
 const toEditable = (university: University): EditableUniversity => ({
@@ -62,7 +63,8 @@ const toEditable = (university: University): EditableUniversity => ({
       return acc;
     },
     {} as Record<DegreeLevel, Scholarship[]>
-  )
+  ),
+  restrictedCountries: [...(university.restrictedCountries ?? [])]
 });
 
 const degreeLabels: Record<DegreeLevel, string> = {
@@ -82,6 +84,7 @@ const AdminPage = () => {
   const [status, setStatus] = useState<{ type: 'success' | 'error'; message: string } | null>(
     null
   );
+  const [restrictedInput, setRestrictedInput] = useState('');
 
   const loadUniversities = useCallback(async () => {
     try {
@@ -227,6 +230,14 @@ const AdminPage = () => {
       )
     ) as Partial<Record<DegreeLevel, number>>;
 
+    const restrictedCountries = Array.from(
+      new Set(
+        (formState.restrictedCountries ?? [])
+          .map((country) => country.trim())
+          .filter((country) => country.length > 0)
+      )
+    );
+
     return {
       ...formState,
       name: formState.name.trim(),
@@ -238,8 +249,28 @@ const AdminPage = () => {
         averageTuition
       },
       programs: cleanPrograms,
-      scholarships: cleanScholarships
+      scholarships: cleanScholarships,
+      restrictedCountries
     };
+  };
+
+  const addRestrictedCountry = () => {
+    const value = restrictedInput.trim();
+    if (!value) return;
+    setFormState((prev) => {
+      const nextList = Array.from(
+        new Set([...(prev.restrictedCountries ?? []), value])
+      );
+      return { ...prev, restrictedCountries: nextList };
+    });
+    setRestrictedInput('');
+  };
+
+  const removeRestrictedCountry = (index: number) => {
+    setFormState((prev) => ({
+      ...prev,
+      restrictedCountries: (prev.restrictedCountries ?? []).filter((_, idx) => idx !== index)
+    }));
   };
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -366,6 +397,44 @@ const AdminPage = () => {
         </label>
 
         <section>
+          <h3>Restricted countries</h3>
+          <p className="muted">
+            List any countries whose citizens are not eligible to apply. This will show as warning
+            tags on the directory and detail pages.
+          </p>
+          <div className="restricted-input">
+            <input
+              value={restrictedInput}
+              onChange={(event) => setRestrictedInput(event.target.value)}
+              placeholder="e.g., Iran"
+              onKeyDown={(event) => {
+                if (event.key === 'Enter') {
+                  event.preventDefault();
+                  addRestrictedCountry();
+                }
+              }}
+            />
+            <button type="button" className="button-secondary" onClick={addRestrictedCountry}>
+              Add
+            </button>
+          </div>
+          {(formState.restrictedCountries ?? []).length === 0 ? (
+            <p className="muted">No restrictions captured.</p>
+          ) : (
+            <div className="pill-row">
+              {formState.restrictedCountries?.map((country, index) => (
+                <span key={`${country}-${index}`} className="pill removable">
+                  {country}
+                  <button type="button" onClick={() => removeRestrictedCountry(index)}>
+                    ×
+                  </button>
+                </span>
+              ))}
+            </div>
+          )}
+        </section>
+
+        <section>
           <h3>Average tuition by degree</h3>
           <div className="grid grid-3">
             {degreeLevels.map((level) => (
@@ -449,15 +518,7 @@ const AdminPage = () => {
                               }
                             />
                           </label>
-                          <label>
-                            Delivery
-                            <input
-                              value={program.delivery}
-                              onChange={(event) =>
-                                handleProgramChange(level, index, 'delivery', event.target.value)
-                              }
-                            />
-                          </label>
+                       
                         </div>
                         <button
                           type="button"
